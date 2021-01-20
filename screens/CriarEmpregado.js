@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
-import { Card, FAB, TextInput } from 'react-native-paper';
+import { StyleSheet, Text, View, Image, FlatList, Modal } from 'react-native';
+import { Card, FAB, TextInput, Button } from 'react-native-paper';
 
 const CriarEmpregado = () => {
     const [name, setName] = useState("")
@@ -14,7 +14,7 @@ const CriarEmpregado = () => {
 
     return (
         <View style={styles.root}>
-            <TextInput 
+            <TextInput
                 label='Nome'
                 style={styles.inputStyle}
                 value={name}
@@ -22,7 +22,7 @@ const CriarEmpregado = () => {
                 mode="outlined"
                 onChangeText={text => this.setName(text)}
             />
-              <TextInput 
+            <TextInput
                 label='Email'
                 style={styles.inputStyle}
                 value={email}
@@ -30,7 +30,7 @@ const CriarEmpregado = () => {
                 mode="outlined"
                 onChangeText={text => this.setEmail(text)}
             />
-               <TextInput 
+            <TextInput
                 label='Telefone'
                 style={styles.inputStyle}
                 value={phone}
@@ -39,7 +39,7 @@ const CriarEmpregado = () => {
                 mode="outlined"
                 onChangeText={text => this.setPhone(text)}
             />
-               <TextInput 
+            <TextInput
                 label='Cargo'
                 style={styles.inputStyle}
                 value={cargo}
@@ -47,7 +47,7 @@ const CriarEmpregado = () => {
                 mode="outlined"
                 onChangeText={text => this.setCargo(text)}
             />
-               <TextInput 
+            <TextInput
                 label='Salario'
                 style={styles.inputStyle}
                 value={salario}
@@ -55,6 +55,55 @@ const CriarEmpregado = () => {
                 mode="outlined"
                 onChangeText={text => this.setSalario(text)}
             />
+
+            <Button
+                icon="upload"
+                mode="contained"
+                onPress={() => setModal(true)}>
+                Enviar Imagem
+            </Button>
+
+
+            <Button
+                icon="content-save"
+                mode="contained"
+                onPress={() => console.log("salvo")}>
+                Criar Empregado
+            </Button>
+
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modal}
+                onRequestClose={() => {
+                    setModal(false)
+                }}
+            >
+                <View style={styles.modalView}>
+                    <View style={styles.modalButtonView}>
+                        <Button
+                            icon="camera"
+                            mode="contained"
+                            theme={theme}
+                            onPress={() => setModal(false)}>
+                            Camera
+                    </Button>
+                        <Button
+                            icon="image-area"
+                            mode="contained"
+                            theme={theme}
+                            onPress={() => setModal(false)}>
+                            Galeria
+                    </Button>
+                    </View>
+                    <Button
+                        mode="contained"
+                        theme={theme}
+                        onPress={() => setModal(false)}>
+                            Cancelar
+                        </Button>
+                </View>
+            </Modal>
 
 
         </View>
@@ -73,6 +122,17 @@ const styles = StyleSheet.create({
     },
     inputStyle: {
         margin: 5
+    },
+    modalView: {
+        position: "absolute",
+        bottom: 2,
+        width: "100%",
+        backgroundColor: "b8e6ff"
+    },
+    modalButtonView: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        padding: 10
     }
 })
 
