@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 import Home from './screens/Home';
 import CriarEmpregado from './screens/CriarEmpregado';
+import Profile from './screens/Profile';
 
 export default function App() {
   return (
