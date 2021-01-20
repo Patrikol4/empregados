@@ -18,7 +18,7 @@ const Home = () => {
 const styles = StyleSheet.create({
     mycard: {
         margin: 5,
-        padding: 5
+        padding: 5,
     }
 })
 
