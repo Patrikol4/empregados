@@ -9,8 +9,9 @@ import Profile from './screens/Profile';
 export default function App() {
   return (
     <View style={styles.container}>
-     { /*<Home/>*/ }
-     <CriarEmpregado/>
+      { /*<Home/>*/}
+      {/* <CriarEmpregado/> */}
+      <Profile />
       <StatusBar style="auto" />
     </View>
   );

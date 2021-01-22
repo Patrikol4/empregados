@@ -63,6 +63,7 @@ const CriarEmpregado = () => {
                 Enviar Imagem
             </Button>
 
+            
 
             <Button
                 icon="content-save"
@@ -112,7 +113,7 @@ const CriarEmpregado = () => {
 
 const theme = {
     colors: {
-        primary: "red"
+        primary: "#006aff"
     }
 }
 
@@ -127,12 +128,13 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 2,
         width: "100%",
-        backgroundColor: "b8e6ff"
+        backgroundColor: "#b8e6ff"
     },
     modalButtonView: {
         flexDirection: "row",
         justifyContent: "space-around",
-        padding: 10
+        padding: 10,
+        margin: 5
     }
 })
 
