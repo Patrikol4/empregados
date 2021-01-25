@@ -5,7 +5,7 @@ import { Card, FAB } from 'react-native-paper';
 
 
 
-const Home = () => {
+const Home = (props) => {
     const data = [
         { id: 1, nome: "Jose", cargo: "Empregado" },
         { id: 2, nome: "Jonas", cargo: "Suporte Tecnico" },
@@ -46,7 +46,9 @@ const Home = () => {
                 keyExtractor={item => `${item.id}`}
             />
 
-            <FAB
+            <FAB onPress={() => {
+                props.navigation.navigate("CriarEmpregado")
+            }}
                 style={styles.fab}
                 small={false}
                 icon="plus"
