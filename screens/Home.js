@@ -37,7 +37,7 @@ const Home = (props) => {
         )
     })
     return (
-        <View>
+        <View style={{flex: 1}}>
             <FlatList
                 data={data}
                 renderItem={({ item }) => {
