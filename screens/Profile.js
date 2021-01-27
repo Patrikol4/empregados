@@ -6,7 +6,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Entypo } from '@expo/vector-icons';
 
 
-const Profile = () => {
+const Profile = (props) => {
+
+    const {id, nome, imagem, salario, email, telefone, cargo} = props.route.params.item
 
     const openDial =() => {
         if(Platform.OS === 'android'){
@@ -26,11 +28,14 @@ const Profile = () => {
             <View style={{ alignItems: "center"}}>
                 <Image
                     style={{ width: 140, height: 140, borderRadius: 140 / 2, marginTop: -50 }}
-                    source={{ uri: "https://images.unsplash.com/photo-1492681290082-e932832941e6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" }}
+                    source={{ uri: imagem }}
                 />
             </View>
             <View style={{ alignItems: 'center', margin: 15 }}>
-                <Title>Patrick Souza</Title>
+                <Title>{nome}</Title>
+                <Text style={{fontSize: 15}}>
+                    {cargo}
+                </Text>
                 <Text style={styles.mytext}>
                     Bem-vindo ao Perfil
             </Text>
@@ -40,19 +45,19 @@ const Profile = () => {
                 Linking.openURL("mailto:someone@example.com")
             }}>
                 <View style={styles.cardContent}>
-                    <Text style={styles.mytext}>Email : patchsouza@protonmail.com</Text>
+                    <Text style={styles.mytext}>Email : {email}</Text>
                 </View>
             </Card>
 
             <Card style={styles.mycard} onPress={() => openDial()}>
                 <View style={styles.cardContent}>
-                    <Text style={styles.mytext}>Número : 1991859540</Text>
+                    <Text style={styles.mytext}>Número : {telefone}</Text>
                 </View>
             </Card>
 
             <Card style={styles.mycard}>
                 <View style={styles.cardContent}>
-                    <Text style={styles.mytext}>Salário : 2000 Reais</Text>
+                    <Text style={styles.mytext}>Salário : {salario}</Text>
                 </View>
             </Card>
 

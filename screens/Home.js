@@ -7,20 +7,17 @@ import { Card, FAB } from 'react-native-paper';
 
 const Home = ({navigation}) => {
     const data = [
-        { id: 1, nome: "Jose", cargo: "Empregado" },
-        { id: 2, nome: "Jonas", cargo: "Suporte Tecnico" },
-        { id: 3, nome: "Mateus", cargo: "Dono" },
-        { id: 4, nome: "Aloisio", cargo: "Tesoureiro" },
-        { id: 5, nome: "Luiz", cargo: "Empregado" },
-        { id: 6, nome: "Marcelo", cargo: "Suporte Tecnico" },
-        { id: 7, nome: "Marcos Paulo", cargo: "Sub-dono" },
-        { id: 8, nome: "Alisson", cargo: "Administracao" },
+        { id: "1", nome: "Jose",email: "jose@email.com",salario: "R$ 2.000 ",telefone: "19-9999-1111", cargo: "Empregado", imagem: "https://images.unsplash.com/photo-1492681290082-e932832941e6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"},
+        { id: "2", nome: "Jonas",email: "jonas@jonas.com",salario: "R$ 2.550",telefone:"19-9999-1111", cargo: "Suporte Tecnico", imagem: "https://images.unsplash.com/photo-1492681290082-e932832941e6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" },
+        { id: "3", nome: "Mateus", email: "jonas@jonas.com",salario: "R$ 2.550",telefone:"19-9999-1111", cargo: "Administrador", imagem: "https://images.unsplash.com/photo-1492681290082-e932832941e6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" },
+        { id: "4", nome: "Aloisio", email: "jonas@jonas.com",salario: "R$ 2.550",telefone:"19-9999-1111", cargo: "CEO", imagem: "https://images.unsplash.com/photo-1492681290082-e932832941e6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" },
+      
     ]
 
     const renderList = data.map((item) => {
         return (
             <Card style={styles.mycard}
-                onPress={() => navigation.navigate("Profile")}
+                onPress={() => navigation.navigate("Profile", {item})}
             >
                 <View style={styles.cardView}>
                     <Image
@@ -45,7 +42,7 @@ const Home = ({navigation}) => {
                 renderItem={({ item }) => {
                     return renderList(item)
                 }}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={item => item.id}
             />
 
             <FAB onPress={() => {
