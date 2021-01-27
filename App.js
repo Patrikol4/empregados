@@ -11,13 +11,33 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
+const myOptions = {
+  title: "Tela Principal",
+  headerTintColor: "white",
+  headerStyle: {
+    backgroundColor: "#006aff"
+  }
+}
+
 function App() {
   return (
     <View style={styles.container}>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="CriarEmpregado" component={CriarEmpregado} />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={myOptions}
+        />
+        <Stack.Screen
+          name="CriarEmpregado"
+          component={CriarEmpregado}
+          options={{...myOptions, title: "Criar Empregado"}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{...myOptions, title:"Perfil de Usuario"}}
+        />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </View>

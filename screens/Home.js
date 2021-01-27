@@ -5,7 +5,7 @@ import { Card, FAB } from 'react-native-paper';
 
 
 
-const Home = (props) => {
+const Home = ({navigation}) => {
     const data = [
         { id: 1, nome: "Jose", cargo: "Empregado" },
         { id: 2, nome: "Jonas", cargo: "Suporte Tecnico" },
@@ -19,7 +19,9 @@ const Home = (props) => {
 
     const renderList = data.map((item) => {
         return (
-            <Card style={styles.mycard}>
+            <Card style={styles.mycard}
+                onPress={() => navigation.navigate("Profile")}
+            >
                 <View style={styles.cardView}>
                     <Image
                         style={{ width: 60, height: 60, borderRadius: 30 }}
@@ -47,13 +49,12 @@ const Home = (props) => {
             />
 
             <FAB onPress={() => {
-                props.navigation.navigate("CriarEmpregado")
+                navigation.navigate("CriarEmpregado")
             }}
                 style={styles.fab}
                 small={false}
                 icon="plus"
                 theme={{colors: {accent: "#006aff"}}}
-                onPress={() => console.log('Pressed')}
             />
 
 
